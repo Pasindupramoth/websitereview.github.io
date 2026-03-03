@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Website Review - Discover honest reviews about technology, e-commerce, AI tools, business sites, and entertainment platforms.">
+    <meta name="keywords" content="website reviews, tech reviews, software reviews, AI tools, business platforms">
+    <meta name="author" content="Website Review">
+    <meta property="og:title" content="Website Review - Honest Website Reviews">
+    <meta property="og:description" content="Discover and share honest reviews about websites across all categories.">
+    <title>Website Review - Discover Honest Website Reviews</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-hover: #4338CA;
+            --secondary: #111827;
+            --accent: #F59E0B;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F9FAFB;
+            --text-primary: #111827;
+            --text-secondary: #6B7280;
+            --border-color: #E5E7EB;
+            --card-bg: #FFFFFF;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0F172A;
+            --bg-secondary: #1E293B;
+            --text-primary: #F9FAFB;
+            --text-secondary: #94A3B8;
+            --border-color: #334155;
+            --card-bg: #1E293B;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(var(--bg-primary), 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-secondary);
+            transform: rotate(180deg);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(79, 70, 229, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            position: relative;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1.5rem;
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 1rem;
+            background: var(--card-bg);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            border: none;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+        }
+
+        .cta-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+        }
+
+        /* Categories Section */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .category-card:hover::before {
+            opacity: 1;
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .category-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .category-card p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Reviews Section */
+        .reviews-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .sort-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--card-bg);
+            color: var(--text-primary);
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .review-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .review-site {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .site-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .site-info h3 {
+            font-size: 1.125rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .site-category {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .rating {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .star {
+            color: #D1D5DB;
+            font-size: 1rem;
+            transition: color 0.2s ease;
+        }
+
+        .star.filled {
+            color: var(--accent);
+        }
+
+        .review-body {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .review-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .review-date {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .read-more-btn {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            color: var(--primary-hover);
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .page-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 40px;
+        }
+
+        .page-btn:hover, .page-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Submit Review Section */
+        .submit-section {
+            background: var(--bg-secondary);
+            border-radius: 24px;
+            padding: 3rem;
+        }
+
+        .review-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .star-rating-input {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .star-input {
+            color: #D1D5DB;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .star-input:hover,
+        .star-input.active {
+            color: var(--accent);
+            transform: scale(1.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section p {
+            color: #9CA3AF;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #9CA3AF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            text-align: center;
+            color: #9CA3AF;
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--border-color);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--secondary);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 1001;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            background: #10B981;
+        }
+
+        .toast.error {
+            background: #EF4444;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2rem;
+            position: relative;
+            animation: modalIn 0.3s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .submit-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* Scroll Animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">Operation successful!</span>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">
+                <i class="fas fa-globe"></i>
+                Website Review
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#submit">Submit Review</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Discover Honest Website Reviews</h1>
+            <p>Find trusted reviews for technology, e-commerce, AI tools, business platforms, and entertainment sites. Make informed decisions with real user experiences.</p>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search for websites...">
+                <button class="search-btn" onclick="handleSearch()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <a href="#reviews" class="cta-btn">Explore Reviews</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="scroll-reveal">
+        <div class="section-title">
+            <h2>Browse by Category</h2>
+            <p>Explore reviews across different website categories</p>
+        </div>
+        
+        <div class="categories-grid">
+            <div class="category-card" onclick="filterByCategory('Technology')">
+                <div class="category-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Technology</h3>
+                <p>Software, apps, and tech platforms</p>
+            </div>
+            
+            <div class="category-card" onclick="filterByCategory('E-commerce')">
+                <div class="category-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3>E-commerce</h3>
+                <p>Online stores and marketplaces</p>
+            </div>
+            
+            <div class="category-card" onclick="filterByCategory('AI Tools')">
+                <div class="category-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>AI Tools</h3>
+                <p>Artificial intelligence platforms</p>
+            </div>
+            
+            <div class="category-card" onclick="filterByCategory('Business')">
+                <div class="category-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3>Business</h3>
+                <p>Business and productivity tools</p>
+            </div>
+            
+            <div class="category-card" onclick="filterByCategory('Education')">
+                <div class="category-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Education</h3>
+                <p>Learning platforms and resources</p>
+            </div>
+            
+            <div class="category-card" onclick="filterByCategory('Entertainment')">
+                <div class="category-icon">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h3>Entertainment</h3>
+                <p>Streaming, gaming, and media</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="scroll-reveal">
+        <div class="section-title">
+            <h2>Latest Reviews</h2>
+            <p>See what others are saying about their favorite websites</p>
+        </div>
+
+        <div class="reviews-controls">
+            <div class="results-info" id="resultsInfo">Showing all reviews</div>
+            <select class="sort-select" id="sortSelect" onchange="sortReviews()">
+                <option value="newest">Newest First</option>
+                <option value="highest">Highest Rated</option>
+                <option value="lowest">Lowest Rated</option>
+            </select>
+        </div>
+
+        <div class="reviews-grid" id="reviewsGrid">
+            <!-- Reviews will be dynamically inserted here -->
+        </div>
+
+        <div class="pagination" id="pagination">
+            <!-- Pagination buttons will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <!-- Submit Review Section -->
+    <section id="submit" class="scroll-reveal">
+        <div class="submit-section">
+            <div class="section-title">
+                <h2>Submit a Review</h2>
+                <p>Share your experience and help others make better choices</p>
+            </div>
+
+            <form class="review-form" id="reviewForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="siteName">Website Name *</label>
+                    <input type="text" id="siteName" required placeholder="e.g., Google">
+                </div>
+
+                <div class="form-group">
+                    <label for="siteUrl">Website URL *</label>
+                    <input type="url" id="siteUrl" required placeholder="https://www.example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category *</label>
+                    <select id="category" required>
+                        <option value="">Select a category</option>
+                        <option value="Technology">Technology</option>
+                        <option value="E-commerce">E-commerce</option>
+                        <option value="AI Tools">AI Tools</option>
+                        <option value="Business">Business</option>
+                        <option value="Education">Education</option>
+                        <option value="Entertainment">Entertainment</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Rating *</label>
+                    <div class="star-rating-input" id="starRating">
+                        <i class="fas fa-star star-input" data-rating="1"></i>
+                        <i class="fas fa-star star-input" data-rating="2"></i>
+                        <i class="fas fa-star star-input" data-rating="3"></i>
+                        <i class="fas fa-star star-input" data-rating="4"></i>
+                        <i class="fas fa-star star-input" data-rating="5"></i>
+                    </div>
+                    <input type="hidden" id="ratingValue" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reviewText">Your Review *</label>
+                    <textarea id="reviewText" required placeholder="Share your detailed experience with this website..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Submit Review
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="scroll-reveal">
+        <div class="section-title">
+            <h2>About Us</h2>
+            <p>Your trusted source for honest website reviews</p>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center; color: var(--text-secondary);">
+            <p style="margin-bottom: 1.5rem; font-size: 1.125rem;">
+                Website Review is a community-driven platform dedicated to providing honest, unbiased reviews of websites across all categories. 
+                Our mission is to help users make informed decisions by sharing real experiences and detailed insights.
+            </p>
+            <p style="font-size: 1.125rem;">
+                Whether you're looking for the best AI tools, reliable e-commerce platforms, or educational resources, 
+                our community of reviewers has got you covered with authentic feedback.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Website Review</h3>
+                <p>Your trusted platform for honest website reviews. Helping millions make better online decisions every day.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#submit">Submit Review</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="filterByCategory('Technology')">Technology</a></li>
+                    <li><a href="#" onclick="filterByCategory('E-commerce')">E-commerce</a></li>
+                    <li><a href="#" onclick="filterByCategory('AI Tools')">AI Tools</a></li>
+                    <li><a href="#" onclick="filterByCategory('Business')">Business</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> support@websitereview.com</li>
+                    <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                    <li><i class="fas fa-map-marker-alt"></i> San Francisco, CA</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Website Review. All rights reserved. | <a href="#" style="color: #9CA3AF;">Privacy Policy</a> | <a href="#" style="color: #9CA3AF;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- Review Detail Modal -->
+    <div class="modal" id="reviewModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalContent">
+                <!-- Modal content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State Management
+        let reviews = [];
+        let currentPage = 1;
+        const reviewsPerPage = 6;
+        let currentCategory = 'all';
+        let currentSort = 'newest';
+        let searchQuery = '';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeReviews();
+            setupEventListeners();
+            setupIntersectionObserver();
+            loadTheme();
+            
+            // Hide loader after page loads
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 500);
+        });
+
+        // Sample Reviews Data
+        function initializeReviews() {
+            const sampleReviews = [
+                {
+                    id: 1,
+                    siteName: "GitHub",
+                    siteUrl: "https://github.com",
+                    category: "Technology",
+                    rating: 5,
+                    review: "GitHub is an essential platform for developers. The interface is intuitive, collaboration features are excellent, and the recent AI-powered Copilot integration has been a game-changer. Highly recommended for any development team.",
+                    date: "2024-01-15",
+                    author: "Alex Chen"
+                },
+                {
+                    id: 2,
+                    siteName: "Amazon",
+                    siteUrl: "https://amazon.com",
+                    category: "E-commerce",
+                    rating: 4,
+                    review: "Great selection and fast shipping with Prime. However, the review system could use better moderation as there are many fake reviews. Customer service is generally helpful but can be slow during peak times.",
+                    date: "2024-01-14",
+                    author: "Sarah Johnson"
+                },
+                {
+                    id: 3,
+                    siteName: "ChatGPT",
+                    siteUrl: "https://chat.openai.com",
+                    category: "AI Tools",
+                    rating: 5,
+                    review: "Revolutionary AI tool that has transformed how I work. The responses are coherent and helpful. The recent updates have made it even better with browsing capabilities and plugin support.",
+                    date: "2024-01-13",
+                    author: "Mike Peters"
+                },
+                {
+                    id: 4,
+                    siteName: "Notion",
+                    siteUrl: "https://notion.so",
+                    category: "Business",
+                    rating: 5,
+                    review: "Best all-in-one workspace tool I've used. The flexibility to create databases, wikis, and docs in one place is unmatched. The templates community is also incredibly helpful for getting started quickly.",
+                    date: "2024-01-12",
+                    author: "Emily Davis"
+                },
+                {
+                    id: 5,
+                    siteName: "Coursera",
+                    siteUrl: "https://coursera.org",
+                    category: "Education",
+                    rating: 4,
+                    review: "Excellent platform for online learning with courses from top universities. The quality varies by course, but overall very good. Would love to see more interactive elements in some courses.",
+                    date: "2024-01-11",
+                    author: "David Kim"
+                },
+                {
+                    id: 6,
+                    siteName: "Netflix",
+                    siteUrl: "https://netflix.com",
+                    category: "Entertainment",
+                    rating: 4,
+                    review: "Great content library with excellent original series. The recommendation algorithm is pretty good. However, the recent price increases and password sharing restrictions are disappointing.",
+                    date: "2024-01-10",
+                    author: "Lisa Wang"
+                },
+                {
+                    id: 7,
+                    siteName: "Figma",
+                    siteUrl: "https://figma.com",
+                    category: "Technology",
+                    rating: 5,
+                    review: "Industry-standard design tool that works entirely in the browser. Real-time collaboration is seamless, and the plugin ecosystem is extensive. Essential for modern design workflows.",
+                    date: "2024-01-09",
+                    author: "Tom Wilson"
+                },
+                {
+                    id: 8,
+                    siteName: "Shopify",
+                    siteUrl: "https://shopify.com",
+                    category: "E-commerce",
+                    rating: 4,
+                    review: "Powerful e-commerce platform with great themes and apps. Setting up a store is straightforward. Transaction fees can add up, but the ease of use makes it worth it for most businesses.",
+                    date: "2024-01-08",
+                    author: "Rachel Green"
+                }
+            ];
+
+            // Load from localStorage or use sample data
+            const storedReviews = localStorage.getItem('websiteReviews');
+            if (storedReviews) {
+                reviews = JSON.parse(storedReviews);
+            } else {
+                reviews = sampleReviews;
+                saveReviews();
+            }
+
+            renderReviews();
+        }
+
+        // Save to LocalStorage
+        function saveReviews() {
+            localStorage.setItem('websiteReviews', JSON.stringify(reviews));
+        }
+
+        // Event Listeners
+        function setupEventListeners() {
+            // Theme Toggle
+            document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+            
+            // Star Rating
+            const stars = document.querySelectorAll('.star-input');
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    const rating = this.getAttribute('data-rating');
+                    document.getElementById('ratingValue').value = rating;
+                    updateStarDisplay(rating);
+                });
+                
+                star.addEventListener('mouseenter', function() {
+                    const rating = this.getAttribute('data-rating');
+                    highlightStars(rating);
+                });
+            });
+            
+            document.getElementById('starRating').addEventListener('mouseleave', function() {
+                const currentRating = document.getElementById('ratingValue').value;
+                updateStarDisplay(currentRating);
+            });
+
+            // Search Input
+            document.getElementById('searchInput').addEventListener('input', debounce(function(e) {
+                searchQuery = e.target.value.toLowerCase();
+                currentPage = 1;
+                renderReviews();
+            }, 300));
+
+            // Mobile Menu
+            document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
+        }
+
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const icon = document.querySelector('#themeToggle i');
+            icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            const icon = document.querySelector('#themeToggle i');
+            icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        // Star Rating Functions
+        function updateStarDisplay(rating) {
+            const stars = document.querySelectorAll('.star-input');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+
+        function highlightStars(rating) {
+            const stars = document.querySelectorAll('.star-input');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.style.color = 'var(--accent)';
+                } else {
+                    star.style.color = '#D1D5DB';
+                }
+            });
+        }
+
+        // Render Reviews
+        function renderReviews() {
+            const grid = document.getElementById('reviewsGrid');
+            const pagination = document.getElementById('pagination');
+            
+            // Filter reviews
+            let filteredReviews = reviews.filter(review => {
+                const matchesCategory = currentCategory === 'all' || review.category === currentCategory;
+                const matchesSearch = review.siteName.toLowerCase().includes(searchQuery) || 
+                                    review.review.toLowerCase().includes(searchQuery);
+                return matchesCategory && matchesSearch;
+            });
+
+            // Sort reviews
+            filteredReviews.sort((a, b) => {
+                switch(currentSort) {
+                    case 'highest':
+                        return b.rating - a.rating;
+                    case 'lowest':
+                        return a.rating - b.rating;
+                    case 'newest':
+                    default:
+                        return new Date(b.date) - new Date(a.date);
+                }
+            });
+
+            // Update results info
+            document.getElementById('resultsInfo').textContent = 
+                `Showing ${filteredReviews.length} review${filteredReviews.length !== 1 ? 's' : ''}`;
+
+            // Pagination
+            const totalPages = Math.ceil(filteredReviews.length / reviewsPerPage);
+            const start = (currentPage - 1) * reviewsPerPage;
+            const paginatedReviews = filteredReviews.slice(start, start + reviewsPerPage);
+
+            // Clear and render
+            grid.innerHTML = '';
+            
+            if (paginatedReviews.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-secondary);">
+                        <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                        <p>No reviews found. Be the first to submit one!</p>
+                    </div>
+                `;
+            } else {
+                paginatedReviews.forEach((review, index) => {
+                    const card = createReviewCard(review, index);
+                    grid.appendChild(card);
+                });
+            }
+
+            // Render pagination
+            renderPagination(totalPages);
+        }
+
+        function createReviewCard(review, index) {
+            const card = document.createElement('div');
+            card.className = 'review-card';
+            card.style.animationDelay = `${index * 0.1}s`;
+            
+            const stars = Array(5).fill(0).map((_, i) => 
+                `<i class="fas fa-star star ${i < review.rating ? 'filled' : ''}"></i>`
+            ).join('');
+
+            const initial = review.siteName.charAt(0).toUpperCase();
+            
+            card.innerHTML = `
+                <div class="review-header">
+                    <div class="review-site">
+                        <div class="site-icon">${initial}</div>
+                        <div class="site-info">
+                            <h3>${review.siteName}</h3>
+                            <span class="site-category">${review.category}</span>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        ${stars}
+                    </div>
+                </div>
+                <div class="review-body">
+                    ${review.review}
+                </div>
+                <div class="review-footer">
+                    <span class="review-date">${formatDate(review.date)}</span>
+                    <button class="read-more-btn" onclick="openModal(${review.id})">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function renderPagination(totalPages) {
+            const pagination = document.getElementById('pagination');
+            
+            if (totalPages <= 1) {
+                pagination.innerHTML = '';
+                return;
+            }
+
+            let html = '';
+            
+            // Previous button
+            html += `
+                <button class="page-btn" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            `;
+
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+                    html += `
+                        <button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">
+                            ${i}
+                        </button>
+                    `;
+                } else if (i === currentPage - 2 || i === currentPage + 2) {
+                    html += `<span style="color: var(--text-secondary);">...</span>`;
+                }
+            }
+
+            // Next button
+            html += `
+                <button class="page-btn" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            `;
+
+            pagination.innerHTML = html;
+        }
+
+        function changePage(page) {
+            currentPage = page;
+            renderReviews();
+            document.getElementById('reviews').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Form Submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            const siteName = document.getElementById('siteName').value;
+            const siteUrl = document.getElementById('siteUrl').value;
+            const category = document.getElementById('category').value;
+            const rating = parseInt(document.getElementById('ratingValue').value);
+            const reviewText = document.getElementById('reviewText').value;
+
+            if (!rating) {
+                showToast('Please select a rating', 'error');
+                return;
+            }
+
+            const newReview = {
+                id: Date.now(),
+                siteName,
+                siteUrl,
+                category,
+                rating,
+                review: reviewText,
+                date: new Date().toISOString().split('T')[0],
+                author: 'Anonymous User'
+            };
+
+            reviews.unshift(newReview);
+            saveReviews();
+            
+            // Reset form
+            document.getElementById('reviewForm').reset();
+            document.getElementById('ratingValue').value = '';
+            updateStarDisplay(0);
+            
+            showToast('Review submitted successfully!', 'success');
+            
+            // Refresh reviews display
+            currentPage = 1;
+            currentCategory = 'all';
+            renderReviews();
+            
+            // Scroll to reviews
+            document.getElementById('reviews').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Filter and Sort Functions
+        function filterByCategory(category) {
+            currentCategory = category;
+            currentPage = 1;
+            renderReviews();
+            document.getElementById('reviews').scrollIntoView({ behavior: 'smooth' });
+            showToast(`Filtered by ${category}`, 'success');
+        }
+
+        function sortReviews() {
+            currentSort = document.getElementById('sortSelect').value;
+            renderReviews();
+        }
+
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            searchQuery = query;
+            currentPage = 1;
+            renderReviews();
+            document.getElementById('reviews').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Modal Functions
+        function openModal(reviewId) {
+            const review = reviews.find(r => r.id === reviewId);
+            if (!review) return;
+
+            const modal = document.getElementById('reviewModal');
+            const content = document.getElementById('modalContent');
+            
+            const stars = Array(5).fill(0).map((_, i) => 
+                `<i class="fas fa-star star ${i < review.rating ? 'filled' : ''}"></i>`
+            ).join('');
+
+            content.innerHTML = `
+                <div class="review-header" style="margin-bottom: 1.5rem;">
+                    <div class="review-site">
+                        <div class="site-icon" style="width: 64px; height: 64px; font-size: 1.5rem;">${review.siteName.charAt(0)}</div>
+                        <div class="site-info">
+                            <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">${review.siteName}</h2>
+                            <span class="site-category">${review.category}</span>
+                        </div>
+                    </div>
+                    <div class="rating" style="font-size: 1.25rem;">
+                        ${stars}
+                    </div>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <a href="${review.siteUrl}" target="_blank" style="color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-external-link-alt"></i> Visit Website
+                    </a>
+                </div>
+                <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem;">
+                    <p style="color: var(--text-primary); line-height: 1.8; font-size: 1.125rem;">${review.review}</p>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; color: var(--text-secondary);">
+                    <span><i class="fas fa-user"></i> ${review.author}</span>
+                    <span><i class="fas fa-calendar"></i> ${formatDate(review.date)}</span>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('reviewModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on outside click
+        document.getElementById('reviewModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Utility Functions
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            const icon = toast.querySelector('i');
+            
+            toast.className = `toast ${type}`;
+            toastMessage.textContent = message;
+            icon.className = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
+            
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Intersection Observer for Scroll Animations
+        function setupIntersectionObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.background = 'var(--bg-primary)';
+                navLinks.style.padding = '2rem';
+                navLinks.style.boxShadow = 'var(--shadow-lg)';
+                navLinks.style.borderTop = '1px solid var(--border-color)';
+            }
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
